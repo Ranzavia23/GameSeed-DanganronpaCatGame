@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bt4r3edb5xu2"]
+
+[ext_resource type="Script" uid="uid://cqfxvldre4f5i" path="res://Scripts/ruang_investigasi.gd" id="1_byuhd"]
+[ext_resource type="Texture2D" uid="uid://c7kl1awnre1jj" path="res://Assets/Placeholder_Ruangan.png" id="1_na5rg"]
+[ext_resource type="Script" uid="uid://boswkewo8oxr6" path="res://Scripts/door_to_main_room.gd" id="2_byuhd"]
+[ext_resource type="Script" uid="uid://hnw7f7i2oj33" path="res://Scripts/poop_clue.gd" id="3_byuhd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lv8ik"]
+size = Vector2(260, 726)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ekw2"]
+size = Vector2(224, 193.75)
+
+[node name="Tes" type="Node2D" unique_id=1715362557]
+script = ExtResource("1_byuhd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2096422580]
+position = Vector2(959.5, 539.00006)
+scale = Vector2(1.5442123, 1.2008928)
+texture = ExtResource("1_na5rg")
+
+[node name="DoorToMainRoom" type="Area2D" parent="." unique_id=685644480]
+script = ExtResource("2_byuhd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToMainRoom" unique_id=1350875536]
+position = Vector2(141, 672)
+shape = SubResource("RectangleShape2D_lv8ik")
+
+[node name="Poop_Clue" type="Area2D" parent="." unique_id=1943228106]
+script = ExtResource("3_byuhd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Poop_Clue" unique_id=527637972]
+position = Vector2(1564, 316.125)
+shape = SubResource("RectangleShape2D_3ekw2")
+
+[connection signal="input_event" from="DoorToMainRoom" to="DoorToMainRoom" method="_on_input_event"]
+[connection signal="input_event" from="Poop_Clue" to="Poop_Clue" method="_on_input_event"]
