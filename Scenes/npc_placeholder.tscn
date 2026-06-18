@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://oqea5prr10ug"]
+
+[ext_resource type="Script" uid="uid://dureqriobs35w" path="res://Scripts/npc_placeholder.gd" id="1_ib4d8"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_26tdj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ww5xn"]
+size = Vector3(0.5, 0.5, 0.15539551)
+
+[node name="NPC_Placeholder" type="StaticBody3D" unique_id=225260934]
+script = ExtResource("1_ib4d8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1535935479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3036524, 0.018371582)
+shape = SubResource("BoxShape3D_ww5xn")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1971391179]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.2860027, 0)
+billboard = 2
+texture = ExtResource("2_26tdj")

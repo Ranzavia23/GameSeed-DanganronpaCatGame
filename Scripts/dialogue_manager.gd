@@ -25,6 +25,7 @@ func start_dialogue(lines: Array, character_name: String = "Nama"):
 	name_label.text = character_name
 	show_line()
 	panel.show()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func show_line():
 	text_label.text = dialogue_lines[current_line]
@@ -55,3 +56,5 @@ func _input(event):
 			else:
 				is_dialogue_active = false
 				panel.hide()
+				if Global.is_in_3d:
+					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

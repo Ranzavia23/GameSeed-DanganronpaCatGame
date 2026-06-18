@@ -10,6 +10,7 @@ var mouse_sensitivity = 0.002
 @onready var raycast = $Camera3D/RayCast3D
 
 func _ready():
+	Global.is_in_3d = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if Global.is_returning == true:
 		global_position = Global.player_pos
@@ -17,17 +18,23 @@ func _ready():
 		Global.is_returning = false
 
 func _input(event):
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		move_and_slide()
+		return
+		
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		camera.rotate_x(-event.relative.y * mouse_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-
+		
 	if event.is_action_pressed("ui_cancel"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+		
 	if event.is_action_pressed("interact"):
 		if raycast.is_colliding():
 			var target = raycast.get_collider()
@@ -40,13 +47,10 @@ func _input(event):
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED

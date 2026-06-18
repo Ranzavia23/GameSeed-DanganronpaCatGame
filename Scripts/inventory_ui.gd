@@ -9,15 +9,18 @@ extends CanvasLayer
 
 func _ready():
 	panel_utama.hide()
-	panel_detail.hide() 
+	panel_detail.hide()
 
 func _input(event):
 	if event.is_action_pressed("toggle_inventory"):
 		if panel_utama.visible:
 			panel_utama.hide()
+			if Global.is_in_3d:
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			update_ui()
 			panel_utama.show()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func update_ui():
 	for child in item_list.get_children():

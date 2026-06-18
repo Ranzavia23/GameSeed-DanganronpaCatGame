@@ -19,7 +19,7 @@ layout_mode = 1
 offset_right = 750.0
 offset_bottom = 67.0
 theme_override_font_sizes/font_size = 34
-text = "NAME TEST DISPLAY IN THIS"
+text = "NAME DISPLAYED IN THIS"
 vertical_alignment = 1
 autowrap_mode = 3
 
