@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c6tdfk572pv0g"]
+
+[ext_resource type="Script" uid="uid://m7m0igl7rupo" path="res://Scripts/dialogue_manager.gd" id="1_atyk4"]
+
+[node name="DialogueManager" type="CanvasLayer" unique_id=1946143763]
+script = ExtResource("1_atyk4")
+
+[node name="Panel" type="Panel" parent="." unique_id=678446538]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -343.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NameLabel" type="Label" parent="Panel" unique_id=549572426]
+layout_mode = 1
+offset_right = 750.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 34
+text = "NAME TEST DISPLAY IN THIS"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextLabel" type="Label" parent="Panel" unique_id=608202302]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.27056962
+anchor_right = 1.0
+anchor_bottom = 0.9731014
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 29
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus lorem quis tellus molestie, eget posuere nulla feugiat. Phasellus nec consectetur tortor, quis sollicitudin sem. Aliquam enim erat, semper eget consectetur non, venenatis sed lacus. Vivamus eget imperdiet massa. Nunc sed ante ante. Donec nisi eros, dapibus cursus finibus id, ullamcorper nec metus. Sed massa orci, feugiat at nulla a, venenatis laoreet erat. Proin sit amet efficitur est. Phasellus placerat id nulla non consectetur. Sed sodales purus orci, nec consequat tortor maximus ut. In rhoncus vehicula gravida. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla nec ultricies leo."
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TypeTimer" type="Timer" parent="." unique_id=343573607]
