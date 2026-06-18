@@ -11,9 +11,7 @@ func _on_input_event(viewport, event, shape_idx):
 		ambil_clue()
 
 func ambil_clue():
-	print("Mendapatkan Clue: ", clue_name)
 	if not Global.inventory.has(clue_name):
 		Global.inventory.append(clue_name)
-		print("Bagus! Berhasil mendapatkan Clue: ", clue_name)
-		print("Isi Inventory sekarang: ", Global.inventory)
+		DialogueManager.start_dialogue(["Ini adalah " + clue_name + "!","Baunya sungguh tidak ramah di hidung...","Bukti ini pasti akan berguna di persidangan nanti."], "Pikiran Batin")
 	queue_free()

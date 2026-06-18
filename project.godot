@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 SceneTransition="*uid://bnd1i80pbay2"
 Global="*uid://daucvpbs58kqy"
 InventoryUi="*uid://41omnog581qu"
+DialogueManager="*uid://c6tdfk572pv0g"
 
 [display]
 
