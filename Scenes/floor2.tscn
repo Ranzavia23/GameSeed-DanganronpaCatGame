@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://xxj4hdidatua"]
+
+[ext_resource type="Script" uid="uid://hnxpif8wdt3k" path="res://Scripts/tangga_ke_lantai_1.gd" id="1_62pbc"]
+[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/player.tscn" id="2_q6xte"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a65fu"]
+albedo_color = Color(0.30980393, 0.101960786, 0.02745098, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxwie"]
+albedo_color = Color(0.30980393, 0.101960786, 0.02745098, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukl56"]
+albedo_color = Color(0.9782296, 0.6300377, 0.51621264, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpl2n"]
+albedo_color = Color(1, 1, 0.81960785, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62pbc"]
+albedo_color = Color(1, 1, 0.81960785, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hu1up"]
+size = Vector3(5.353821, 2.762207, 3.837204)
+
+[node name="Floor1" type="Node3D" unique_id=1152997182]
+
+[node name="Base" type="CSGBox3D" parent="." unique_id=1014743641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.028, 4.906579, -4.6094904)
+use_collision = true
+size = Vector3(20, 0.01, 12.14502)
+material = SubResource("StandardMaterial3D_a65fu")
+
+[node name="Base2" type="CSGBox3D" parent="." unique_id=792721233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7088165, 4.906579, 5.3104467)
+use_collision = true
+size = Vector3(12.526367, 0.01, 7.936371)
+material = SubResource("StandardMaterial3D_pxwie")
+
+[node name="Ceiling" type="CSGBox3D" parent="." unique_id=125942311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.028, 62.86454, -0.682)
+use_collision = true
+size = Vector3(20, 0.01, 20)
+material = SubResource("StandardMaterial3D_ukl56")
+
+[node name="SWall" type="CSGBox3D" parent="." unique_id=1249961897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2304032, 4.9636126, 9.211758)
+use_collision = true
+size = Vector3(20, 9.621582, 0.1)
+material = SubResource("StandardMaterial3D_vpl2n")
+
+[node name="NWall" type="CSGBox3D" parent="." unique_id=712673747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2304032, 7.2744036, -10.684242)
+use_collision = true
+size = Vector3(20, 5, 0.1)
+material = SubResource("StandardMaterial3D_vpl2n")
+
+[node name="WWall" type="CSGBox3D" parent="." unique_id=256203811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.779596, 7.2744036, -0.73524195)
+use_collision = true
+size = Vector3(0.1, 5, 20)
+material = SubResource("StandardMaterial3D_vpl2n")
+
+[node name="EWall" type="CSGBox3D" parent="." unique_id=854420351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.120403, 5.0141497, -0.73524195)
+use_collision = true
+size = Vector3(0.1, 9.520508, 20)
+material = SubResource("StandardMaterial3D_vpl2n")
+
+[node name="Stairs" type="Node3D" parent="." unique_id=1750092075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.377853, 0.78518915, 6.6884108)
+
+[node name="Roomwall" type="CSGBox3D" parent="Stairs" unique_id=156856517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9729204, 4.0219293, -5.1715527)
+use_collision = true
+size = Vector3(7.65094, 9.93457, 0.1)
+material = SubResource("StandardMaterial3D_62pbc")
+
+[node name="StairsBlock" type="CSGBox3D" parent="Stairs" unique_id=228725805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7456512, -0.41088867, 0.58258057)
+size = Vector3(0.70318604, 0.17822266, 4)
+
+[node name="StairsBlock2" type="CSGBox3D" parent="Stairs" unique_id=1528800329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.042653, -0.17938232, 0.58258057)
+size = Vector3(0.70318604, 0.29919434, 4)
+
+[node name="StairsBlock3" type="CSGBox3D" parent="Stairs" unique_id=1356277891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.349165, 0.16674805, 0.58258057)
+size = Vector3(0.70318604, 0.38867188, 4)
+
+[node name="StairsBlock4" type="CSGBox3D" parent="Stairs" unique_id=43811723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6443839, 0.42529297, 0.58258057)
+size = Vector3(0.70318604, 0.5073242, 4)
+
+[node name="StairsBlock5" type="CSGBox3D" parent="Stairs" unique_id=930108525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9727497, 0.78408813, 0.58258057)
+size = Vector3(0.70318604, 0.621521, 4)
+
+[node name="StairsBlock6" type="CSGBox3D" parent="Stairs" unique_id=814603012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30830097, 1.140696, 0.58258057)
+size = Vector3(0.70318604, 0.621521, 4)
+
+[node name="Platform" type="CSGBox3D" parent="Stairs" unique_id=428358369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3683786, 1.4105778, -1.3405628)
+size = Vector3(2.6466217, 0.621521, 7.593479)
+
+[node name="StairsBlock8" type="CSGBox3D" parent="Stairs" unique_id=953026391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30830097, 0.8164489, -3.2702918)
+use_collision = true
+size = Vector3(0.70318604, 2.6619186, 3.7471924)
+
+[node name="StairsBlock9" type="CSGBox3D" parent="Stairs" unique_id=1464669191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0140066, 0.99566436, -3.2702918)
+use_collision = true
+size = Vector3(0.70318604, 3.017849, 3.7471924)
+
+[node name="StairsBlock10" type="CSGBox3D" parent="Stairs" unique_id=559402836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7170191, 1.1324944, -3.2702918)
+use_collision = true
+size = Vector3(0.70318604, 3.284233, 3.7471924)
+
+[node name="StairsBlock11" type="CSGBox3D" parent="Stairs" unique_id=161170435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.414456, 1.3005733, -3.2702918)
+use_collision = true
+size = Vector3(0.70318604, 3.6255417, 3.7471924)
+
+[node name="StairsBlock12" type="CSGBox3D" parent="Stairs" unique_id=1815766928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1187272, 1.3781958, -3.2702918)
+use_collision = true
+size = Vector3(0.70318604, 4.090439, 3.7471924)
+
+[node name="StairsBlock13" type="CSGBox3D" parent="Stairs" unique_id=1105927405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7925644, 1.4654541, -3.2702918)
+use_collision = true
+size = Vector3(0.70318604, 4.563095, 3.7471924)
+
+[node name="StairsBlock14" type="CSGBox3D" parent="Stairs" unique_id=1349985189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4737816, 1.8049788, -3.2702918)
+use_collision = true
+size = Vector3(0.70318604, 4.636772, 3.7471924)
+
+[node name="TanggaKeLantai1" type="StaticBody3D" parent="Stairs" unique_id=496775362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.498209, 4.6198487, -3.958806)
+script = ExtResource("1_62pbc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stairs/TanggaKeLantai1" unique_id=787651138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6843567, 0.8811035, 0.6612091)
+shape = SubResource("BoxShape3D_hu1up")
+
+[node name="Player" parent="." unique_id=358859478 instance=ExtResource("2_q6xte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 2.13)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1548488582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83528185, 7.4841347, -0.86328304)
+omni_range = 12.891
+
+[node name="TitikSpawnAtas" type="Marker3D" parent="." unique_id=461772053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5506387, 6.007654, 4.025205)

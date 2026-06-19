@@ -1,27 +1,42 @@
 [gd_scene format=3 uid="uid://cr8o3yllqe75"]
 
-[ext_resource type="Script" uid="uid://cu3xmxv0dpab7" path="res://Scripts/static_body_3d.gd" id="1_hu1up"]
+[ext_resource type="Script" uid="uid://eaw15gynrki4" path="res://Scripts/tangga_ke_lantai_2.gd" id="1_57iu8"]
+[ext_resource type="Script" uid="uid://cu3xmxv0dpab7" path="res://Scripts/pintu_ke_ruang_makan.gd" id="1_hu1up"]
 [ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/player.tscn" id="2_57iu8"]
+[ext_resource type="Script" uid="uid://clxqjhc3x1a03" path="res://Scripts/pintu_ke_kamar_nenek.gd" id="3_fx2p1"]
 [ext_resource type="PackedScene" uid="uid://oqea5prr10ug" path="res://Scenes/npc_placeholder.tscn" id="3_tucyv"]
+[ext_resource type="Script" uid="uid://b4duvoan3ivas" path="res://Scripts/pintu_keluar_rumah.gd" id="4_0js2q"]
+[ext_resource type="Texture2D" uid="uid://bfctm7a0rnodu" path="res://Assets/PlaceholderDoorMain.png" id="5_wxwll"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a65fu"]
 albedo_color = Color(0.30980393, 0.101960786, 0.02745098, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukl56"]
-albedo_color = Color(0.9782296, 0.6300377, 0.51621264, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpl2n"]
 albedo_color = Color(1, 1, 0.81960785, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hu1up"]
-size = Vector3(6.1812744, 2.762207, 3.5611267)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vpl2n"]
+size = Vector3(6.1812744, 2.762207, 3.837204)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mfu5p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfu5p"]
 size = Vector3(0.16333008, 1.8596191, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_57iu8"]
+load_path = "res://.godot/imported/PlaceholderDoorNormal.png-19a4493d13a3227bd92ebdbcb17bb8d5.s3tc.ctex"
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_57iu8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tucyv"]
+size = Vector3(1.1970215, 1.86, 0.13606542)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fx2p1"]
+load_path = "res://.godot/imported/PlaceholderDoorNormal.png-19a4493d13a3227bd92ebdbcb17bb8d5.s3tc.ctex"
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_juqag"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kw6a2"]
+size = Vector3(0.16333008, 2.0220947, 2.5)
 
 [node name="Floor1" type="Node3D" unique_id=1152997182]
 
@@ -30,12 +45,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.028, 0.27, -0.682)
 use_collision = true
 size = Vector3(20, 0.01, 20)
 material = SubResource("StandardMaterial3D_a65fu")
-
-[node name="Ceiling" type="CSGBox3D" parent="." unique_id=125942311]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.028, 62.86454, -0.682)
-use_collision = true
-size = Vector3(20, 0.01, 20)
-material = SubResource("StandardMaterial3D_ukl56")
 
 [node name="SWall" type="CSGBox3D" parent="." unique_id=1249961897]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2304032, 2.47223, 9.211758)
@@ -63,11 +72,6 @@ material = SubResource("StandardMaterial3D_vpl2n")
 
 [node name="Stairs" type="Node3D" parent="." unique_id=1750092075]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.377853, 0.78518915, 6.6884108)
-
-[node name="Frame" type="CSGBox3D" parent="Stairs" unique_id=1778679107]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0482864, 1.6340904, -5.1979036)
-use_collision = true
-size = Vector3(7.527937, 4.9819336, 0.13085938)
 
 [node name="StairsBlock" type="CSGBox3D" parent="Stairs" unique_id=228725805]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7456512, -0.41088867, 0.58258057)
@@ -132,30 +136,84 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4737816, 1.8049788, -3.270
 use_collision = true
 size = Vector3(0.70318604, 4.636772, 3.7471924)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Stairs" unique_id=496775362]
+[node name="TanggaKeLantai2" type="StaticBody3D" parent="Stairs" unique_id=496775362]
+script = ExtResource("1_57iu8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Stairs/StaticBody3D" unique_id=787651138]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0980835, 0.8811035, 0.6612091)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stairs/TanggaKeLantai2" unique_id=787651138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0980835, 0.8811035, 0.5231705)
 shape = SubResource("BoxShape3D_hu1up")
 
-[node name="Door" type="CSGBox3D" parent="." unique_id=1856801894]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9969387, 1.2099198, 0.79802054)
-size = Vector3(0.103637695, 1.9003296, 1)
-material = SubResource("ShaderMaterial_vpl2n")
+[node name="Rooms" type="Node3D" parent="." unique_id=1974660482]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Door" unique_id=735153051]
+[node name="DapurDanRuangMakan" type="CSGBox3D" parent="Rooms" unique_id=729446496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.638919, 2.610302, -2.2205877)
+size = Vector3(0.16381836, 4.5966797, 7.557129)
+
+[node name="PintuKeRuangMakan" type="StaticBody3D" parent="Rooms/DapurDanRuangMakan" unique_id=735153051]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.082268715, -1.3767962, 0)
 physics_material_override = SubResource("PhysicsMaterial_mfu5p")
 script = ExtResource("1_hu1up")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/StaticBody3D" unique_id=1728315521]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/DapurDanRuangMakan/PintuKeRuangMakan" unique_id=1728315521]
 shape = SubResource("BoxShape3D_mfu5p")
+
+[node name="Sprite3D" type="Sprite3D" parent="Rooms/DapurDanRuangMakan/PintuKeRuangMakan" unique_id=2052161011]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+pixel_size = 0.006
+texture = SubResource("CompressedTexture2D_57iu8")
+
+[node name="KamarNenek" type="CSGBox3D" parent="Rooms" unique_id=1735946370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15565681, 2.5999284, -5.99321)
+size = Vector3(7.0908813, 4.621521, 0.14498901)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Rooms/KamarNenek" unique_id=628476099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.402359, 0, -2.2984638)
+size = Vector3(0.28616333, 4.621521, 4.7188644)
+
+[node name="PintuKeKamarNenek" type="StaticBody3D" parent="Rooms/KamarNenek" unique_id=486135464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.082268715, -1.3767962, 0.074225426)
+physics_material_override = SubResource("PhysicsMaterial_57iu8")
+script = ExtResource("3_fx2p1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/KamarNenek/PintuKeKamarNenek" unique_id=1394967421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033813477, 0, -0.013467312)
+shape = SubResource("BoxShape3D_tucyv")
+
+[node name="Sprite3D" type="Sprite3D" parent="Rooms/KamarNenek/PintuKeKamarNenek" unique_id=1739031325]
+pixel_size = 0.006
+texture = SubResource("CompressedTexture2D_fx2p1")
+
+[node name="Frame" type="CSGBox3D" parent="Rooms" unique_id=1778679107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9537177, 2.4192796, 3.4561357)
+use_collision = true
+size = Vector3(5.799979, 4.9819336, 0.13085938)
+
+[node name="PintuKeluarRumah" type="StaticBody3D" parent="Rooms/Frame" unique_id=2055972939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7616715, -1.0677147, 3.0105205)
+physics_material_override = SubResource("PhysicsMaterial_juqag")
+script = ExtResource("4_0js2q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rooms/Frame/PintuKeluarRumah" unique_id=831393525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004371643, 0.046691895, -0.040527344)
+shape = SubResource("BoxShape3D_kw6a2")
+
+[node name="Sprite3D" type="Sprite3D" parent="Rooms/Frame/PintuKeluarRumah" unique_id=789298239]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+pixel_size = 0.006
+texture = ExtResource("5_wxwll")
 
 [node name="Player" parent="." unique_id=358859478 instance=ExtResource("2_57iu8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0333238, 0)
 
 [node name="NPC_Placeholder" parent="." unique_id=225260934 instance=ExtResource("3_tucyv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9046178, 0.621135, -6.4774327)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9024177, 0.621135, -2.6630487)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1548488582]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83528185, 7.4841347, -0.86328304)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3709278, 5.827737, -0.86328304)
 omni_range = 12.891
+
+[node name="TitikSpawnBawah" type="Marker3D" parent="." unique_id=938059970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8447077, 1.3658495, 7.333548)
+
+[node name="TitikSpawnDalam" type="Marker3D" parent="." unique_id=214144594]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.733409, 1.3658495, 6.376216)

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7kl1awnre1jj"
-path.s3tc="res://.godot/imported/Placeholder_Ruangan.png-f30da3163d6a3e5051b9e2529e53e5ba.s3tc.ctex"
+uid="uid://bfctm7a0rnodu"
+path.s3tc="res://.godot/imported/PlaceholderDoorMain.png-112722da517d5eee1628b1b092e2bdaf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Placeholder_Ruangan.png"
-dest_files=["res://.godot/imported/Placeholder_Ruangan.png-f30da3163d6a3e5051b9e2529e53e5ba.s3tc.ctex"]
+source_file="res://Assets/PlaceholderDoorMain.png"
+dest_files=["res://.godot/imported/PlaceholderDoorMain.png-112722da517d5eee1628b1b092e2bdaf.s3tc.ctex"]
 
 [params]
 

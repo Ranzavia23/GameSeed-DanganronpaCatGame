@@ -16,6 +16,12 @@ func _ready():
 		global_position = Global.player_pos
 		global_rotation = Global.player_rot
 		Global.is_returning = false
+	elif Global.target_spawn_name != "":
+		var spawn_point = get_parent().find_child(Global.target_spawn_name, true, false)
+		if spawn_point:
+			global_position = spawn_point.global_position
+			global_rotation = spawn_point.global_rotation
+		Global.target_spawn_name = ""
 
 func _input(event):
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
@@ -38,10 +44,14 @@ func _input(event):
 	if event.is_action_pressed("interact"):
 		if raycast.is_colliding():
 			var target = raycast.get_collider()
-			if target.has_method("interact"):
+			if target.has_method("interact_ke_2d"):
 				Global.player_pos = global_position
 				Global.player_rot = global_rotation
 				Global.is_returning = true
+				target.interact_ke_2d()
+			elif target.has_method("interact_ke_3d"):
+				target.interact_ke_3d()
+			elif target.has_method("interact"):
 				target.interact()
 
 func _physics_process(delta):

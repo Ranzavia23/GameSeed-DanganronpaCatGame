@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bpuas5pqooeyk"]
+
+[ext_resource type="Script" uid="uid://cqfxvldre4f5i" path="res://Scripts/ruang_investigasi.gd" id="1_lsd8r"]
+[ext_resource type="Texture2D" uid="uid://covtsatlduyux" path="res://Assets/Ruang_Makan.png" id="2_uto81"]
+[ext_resource type="Script" uid="uid://boswkewo8oxr6" path="res://Scripts/door_to_main_room.gd" id="3_avxfo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lv8ik"]
+size = Vector2(173, 726)
+
+[node name="RuangMakan" type="Node2D" unique_id=1715362557]
+script = ExtResource("1_lsd8r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2096422580]
+position = Vector2(961, 540.5)
+scale = Vector2(1.2275065, 1.1757642)
+texture = ExtResource("2_uto81")
+
+[node name="DoorToMainRoom" type="Area2D" parent="." unique_id=685644480]
+position = Vector2(1066, 468)
+script = ExtResource("3_avxfo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToMainRoom" unique_id=1350875536]
+position = Vector2(766, 243)
+shape = SubResource("RectangleShape2D_lv8ik")
+
+[connection signal="input_event" from="DoorToMainRoom" to="DoorToMainRoom" method="_on_input_event"]

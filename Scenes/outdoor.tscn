@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://ply6cuixj8eh"]
+
+[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://Scenes/player.tscn" id="1_dw8ox"]
+[ext_resource type="Script" uid="uid://cq68we3orbgvo" path="res://Scripts/pintu_masuk_rumah.gd" id="2_q1fax"]
+[ext_resource type="Texture2D" uid="uid://bfctm7a0rnodu" path="res://Assets/PlaceholderDoorMain.png" id="2_tl7r3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5es7a"]
+albedo_color = Color(0.72156864, 1, 0.3372549, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dw8ox"]
+albedo_color = Color(0.30980393, 0.101960786, 0.02745098, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q1fax"]
+albedo_color = Color(0.30980393, 0.101960786, 0.02745098, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lj8gq"]
+albedo_color = Color(0.30980393, 0.101960786, 0.02745098, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tl7r3"]
+albedo_color = Color(1, 1, 0.81960785, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rsb4y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_barda"]
+size = Vector3(0.16333008, 2.0220947, 2.5)
+
+[node name="Outdoor" type="Node3D" unique_id=1605191198]
+
+[node name="BaseGround" type="CSGBox3D" parent="." unique_id=909561673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8973694, 0, 12.843506)
+use_collision = true
+size = Vector3(42.220642, 0.1, 45.68701)
+material = SubResource("StandardMaterial3D_5es7a")
+
+[node name="Player" parent="BaseGround" unique_id=358859478 instance=ExtResource("1_dw8ox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0333238, 0)
+
+[node name="Rumah" type="Node3D" parent="." unique_id=1999778811]
+
+[node name="Base" type="CSGBox3D" parent="Rumah" unique_id=1417073381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9231205, 0.51439726, 19.973282)
+use_collision = true
+size = Vector3(23.576965, 0.9177832, 19.526825)
+material = SubResource("StandardMaterial3D_dw8ox")
+
+[node name="LowerRoof" type="CSGPolygon3D" parent="Rumah" unique_id=1977387782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.271764, 5.5565963, 29.72671)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1, 0.48256016, 0.98282003, 2.007022, -0.39385414, 0, 0)
+depth = 14.7
+material = SubResource("StandardMaterial3D_q1fax")
+
+[node name="TopRoof" type="CSGBox3D" parent="Rumah" unique_id=1895478239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9231205, 10.861616, 19.973282)
+use_collision = true
+size = Vector3(23.576965, 0.9177832, 19.526825)
+material = SubResource("StandardMaterial3D_lj8gq")
+
+[node name="SWall" type="CSGBox3D" parent="Rumah" unique_id=1714870769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.337041, 3.1705189, 29.756744)
+use_collision = true
+size = Vector3(20, 15, 0.1)
+material = SubResource("StandardMaterial3D_tl7r3")
+
+[node name="NWall" type="CSGBox3D" parent="Rumah" unique_id=427094595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3101854, 3.1705189, 15.187407)
+use_collision = true
+size = Vector3(19.94629, 15, 0.1)
+material = SubResource("StandardMaterial3D_tl7r3")
+
+[node name="PintuMasukRumah" type="StaticBody3D" parent="Rumah/NWall" unique_id=1611782670]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.517045, -1.1255727, -0.05849266)
+physics_material_override = SubResource("PhysicsMaterial_rsb4y")
+script = ExtResource("2_q1fax")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rumah/NWall/PintuMasukRumah" unique_id=1958232661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045259476, 0.046691895, -0.040527344)
+shape = SubResource("BoxShape3D_barda")
+
+[node name="Sprite3D" type="Sprite3D" parent="Rumah/NWall/PintuMasukRumah" unique_id=1703837524]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+pixel_size = 0.006
+texture = ExtResource("2_tl7r3")
+
+[node name="WWall" type="CSGBox3D" parent="Rumah" unique_id=1999701687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6729584, 3.1705189, 22.547802)
+use_collision = true
+size = Vector3(0.1, 15, 14.803955)
+material = SubResource("StandardMaterial3D_tl7r3")
+
+[node name="EWall" type="CSGBox3D" parent="Rumah" unique_id=611808143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.227041, 3.1705189, 22.431576)
+use_collision = true
+size = Vector3(0.1, 15, 14.516785)
+material = SubResource("StandardMaterial3D_tl7r3")
+
+[node name="TitikSpawnLuar" type="Marker3D" parent="." unique_id=10957704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8161077, 2.058567, 13.978982)
